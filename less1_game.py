@@ -33,6 +33,7 @@ dt = 0
 
 player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
 
+player_pos2 = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
 
 while running:
 
@@ -58,8 +59,10 @@ while running:
     
     pygame.draw.circle(screen, "red", player_pos, 40)
 
+    pygame.draw.circle(screen, "red", player_pos2, 40)
     
     key = pygame.key.get_pressed()
+    key2 = pygame.key.get_pressed()
     if key[pygame.K_w]:
         if player_pos.y >= 300 * dt: player_pos.y -= 300 * dt
     if key[pygame.K_s]:
@@ -68,6 +71,15 @@ while running:
         if player_pos.x >= 300 * dt: player_pos.x -= 300 * dt
     if key[pygame.K_d]:
         if player_pos.x <= screen.get_width() - 300 * dt: player_pos.x += 300 * dt
+
+    if key2[pygame.K_UP]:
+        if player_pos2.y >= 300 * dt: player_pos2.y -= 300 * dt
+    if key2[pygame.K_DOWN]:
+        if player_pos2.y <= screen.get_height() - 300 * dt: player_pos2.y += 300 * dt
+    if key2[pygame.K_LEFT]:
+        if player_pos2.x >= 300 * dt: player_pos2.x -= 300 * dt
+    if key2[pygame.K_RIGHT]:
+        if player_pos2.x <= screen.get_width() - 300 * dt: player_pos2.x += 300 * dt
 
 
     
